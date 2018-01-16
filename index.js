@@ -126,9 +126,9 @@ module.exports = function Aesthetics(dispatch) {
 	}
 	
 	function resetSky(){
-		dispatch.toClient('S_START_ACTION_SCRIPT', 1, {
+		dispatch.toClient('S_START_ACTION_SCRIPT', 2, {
 			cid: pcid,
-			unk1: 105,
+			script: 105,
 			unk2: 0
 		});
 	}
