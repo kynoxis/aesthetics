@@ -1,7 +1,10 @@
 module.exports = function Aesthetics(dispatch) {
 
-	const Command = require('command');
-	const command = Command(dispatch);
+	const Command = require('command'),
+		command = Command(dispatch),
+		strOn = '<font color="#56B4E9">enabled</font>',
+		strOff = '<font color="#E69F00">disabled</font>';
+		
 	const {
 		aero: 	AERO,
 		aura: 	AURA,
@@ -23,28 +26,11 @@ module.exports = function Aesthetics(dispatch) {
 	//COMMANDS
 	command.add('aes', (type, effect, arg3) => {
 	
-		if (type == 'clear' || autoclear){
+		if (autoclear){
 			resetSky();
 			clearAllEffects();
 		}
-		
-		if (type == 'autoclear'){
-			autoclear = !autoclear
-			command.message('Aesthetics \'autoclear\' is ' + (autoclear ? 'enabled.' : 'disabled.'))
-		}
-	
-		if (autoclear) {
-			setTimeout(() => {
-				handle(type, effect, arg3)
-			}, 1000);
-		} else {
-			handle(type, effect, arg3)
-		}
-		
-	});
-	
-	//FUNCTIONS
-	function handle(type, effect, arg3){
+
 		switch (type) {
 			case 'sky':
 				dispatch.toClient('S_AERO', 1, {
@@ -88,9 +74,21 @@ module.exports = function Aesthetics(dispatch) {
 				else
 					removeEffect(ETC[effect]);
 			break;
+			
+			case 'autoclear':
+				autoclear = !autoclear
+				command.message('[Aesthetics] Autoclear is ' + (autoclear ? strOn : strOff))
+			break;
+			
+			case 'clear':
+				resetSky();
+				clearAllEffects();
+			break;
 		}
-	}
+		
+	});
 	
+	//FUNCTIONS	
 	function addEffect(eid){
 		dispatch.toClient('S_ABNORMALITY_BEGIN', 2, {
 			target: pcid,
@@ -126,10 +124,10 @@ module.exports = function Aesthetics(dispatch) {
 	}
 	
 	function resetSky(){
-		dispatch.toClient('S_START_ACTION_SCRIPT', 2, {
-			cid: pcid,
-			script: 105,
-			unk2: 0
+		dispatch.toClient('S_AERO', 1, {
+			enabled: 0,
+			blendTime: 0,
+			aeroSet: ''
 		});
 	}
 };
