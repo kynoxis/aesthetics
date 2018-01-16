@@ -15,13 +15,7 @@ module.exports = function Aesthetics(dispatch) {
 		effects = [],
         autoclear = true;
 
-	//HOOKS	
-	dispatch.hook('S_ABNORMALITY_BEGIN', 2, {filter: {fake: null}}, event =>{
-		if (event.source == 69696969){
-			effects.push(event.id)
-		}
-	});
-	
+	//HOOKS
 	dispatch.hook('S_LOGIN', 2, (event) => {
 		pcid = event.cid
 	});

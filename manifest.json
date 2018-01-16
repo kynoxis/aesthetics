@@ -1,0 +1,14 @@
+{
+  "files": {
+    "index.js": "4785dd729839b6243ae6bf44d5e5ecc9d094b9ff250e1c14268b5ad1ad03438a",
+    "module.json": "3a4f71bef38d92145d02b6e640cc3db4c1d3292f82662b7a81a53b4fecc8ddba",
+    "values.json": "a36f003fcece9400b52f0afc169c944de718630c065f680908eac0b52a27ea6e"
+  },
+    "defs": {
+        "S_AERO": 1,
+        "S_LOGIN": 2,
+        "S_ABNORMALITY_BEGIN": 2,
+        "S_ABNORMALITY_END": 1,
+        "S_START_ACTION_SCRIPT": 1
+    }
+}
