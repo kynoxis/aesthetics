@@ -6,6 +6,7 @@
 * `aes <type> <id>` Applies various effects. Types are `ａｕｒａ，　ｓｈｉｅｌｄ，　ｈａｎｄ，　ｇｒｏｕｎｄ，　ｅｔｃ` just keep shoving IDs in until nothing new happens. Some abnormalities will overwrite others and cause nothing to happen. Some abnormalities (the water one in particular) will lag the shit out of you.
 * `aes <type> <id> rm` removes the effect, eg `aes aura 2 rm` will remove aura 2
 * `aes clear` clears all effects (including sky), locks you in place for a few seconds
+* `aes autoclear` toogles automatic clearing after adding an effect
 
 ## _ＦＵＴＵＲＥ changes_
 * Add more IDs, if you have suggestions/want something added hit me up
